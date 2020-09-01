@@ -11,7 +11,6 @@ export type HistogramData = {
     extent?: number[]
 }
 
-
 export class Histogram extends VComponent<HistogramData> {
     protected _current = {};
     protected css_name = 'HistogramX';
@@ -21,6 +20,7 @@ export class Histogram extends VComponent<HistogramData> {
         margin_top: 10,
         numberFormat: d3.format('.3')
     };
+
     highlightLabel: d3.Selection<SVGTextElement, any, any, any>;
 
     constructor(d3Parent: D3Sel, eventHandler?: SimpleEventHandler, options: {} = {}) {
@@ -93,14 +93,11 @@ export class Histogram extends VComponent<HistogramData> {
             })
             .on('mouseleave', () => this.highlightLabel.style('visibility', 'hidden'))
 
-
         this.layers.bg.select('.y-axis').call(d3.axisRight(countScale).tickFormat(op.numberFormat));
         this.layers.bg.select('.x-axis').call(d3.axisBottom(valueScale).tickFormat(op.numberFormat).ticks(thresholds.length));
 
-
         const median_d = d3.quantile(values, .5);
         const quantiles_d = [0.25, .75].map(p => d3.quantile(values, p));
-
 
         this.layers.box.selectAll('.quantiles').data([quantiles_d.map(d => valueScale(d))])
             .join('rect')
@@ -112,18 +109,15 @@ export class Histogram extends VComponent<HistogramData> {
                 height: 10
             });
 
-
         const median = this.layers.box.selectAll('.median').data([median_d])
             .join('g')
             .attr('class', 'median')
             .attr('transform', d => `translate(${valueScale(d)},${op.height - 28})`)
             .html(d => '<line x1="-3" y1="0" x2="3" y2="0"/>' +
                 '<line x1="0" y1="-3" x2="0" y2="3"/>' + `<text x="6">${op.numberFormat(d)}</text>`);
-
     }
 
     protected _wrangle(data) {
         return data;
     }
-
 }

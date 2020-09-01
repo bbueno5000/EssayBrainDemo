@@ -1,6 +1,7 @@
 /**
  * Created by hen on 5/15/17.
  */
+
 export class SimpleEventHandler {
 
     element: Element;
@@ -26,5 +27,4 @@ export class SimpleEventHandler {
     trigger(eventName: string, detail: object) {
         this.element.dispatchEvent(new CustomEvent(eventName, {detail}));
     }
-
 }

@@ -3,9 +3,11 @@ import * as d3 from "d3";
 /**
  * Created by hen on 5/15/17.
  */
+
 let the_unique_id_counter = 0;
 
 export class Util {
+
     static simpleUId({prefix = ''}): string {
         the_unique_id_counter += 1;
 
@@ -68,10 +70,6 @@ export function flatten(arr) {
 export function token_cleanup(token) {
 
     token = (token.startsWith('Ġ')) ? token.slice(1) : ((token.startsWith('Ċ') || token.startsWith('â')) ? " " : token);
-    // token = (token.startsWith('â')) ? '–' : token;
-    // token = (token.startsWith('ľ')) ? '“' : token;
-    // token = (token.startsWith('Ŀ')) ? '”' : token;
-    // token = (token.startsWith('Ļ')) ? "'" : token;
 
     try {
         token = decodeURIComponent(escape(token));
