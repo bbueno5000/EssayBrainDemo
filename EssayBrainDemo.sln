@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1231
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "backend", "backend\backend.pyproj", "{0A77076C-9271-4D2B-9CF7-CC137A922FCC}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "frontend", "frontend\frontend.njsproj", "{155A2907-1D24-446A-8D47-D63070D0ADF6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A77076C-9271-4D2B-9CF7-CC137A922FCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A77076C-9271-4D2B-9CF7-CC137A922FCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{155A2907-1D24-446A-8D47-D63070D0ADF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{155A2907-1D24-446A-8D47-D63070D0ADF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{155A2907-1D24-446A-8D47-D63070D0ADF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{155A2907-1D24-446A-8D47-D63070D0ADF6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {47558A6D-AE96-40FA-A7DB-00CD36D87833}
+	EndGlobalSection
+EndGlobal

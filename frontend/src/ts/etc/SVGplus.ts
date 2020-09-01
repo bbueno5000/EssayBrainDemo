@@ -3,7 +3,9 @@ import * as d3 from "d3"
 /**
  * Created by hen on 5/15/17.
  */
+
 export class SVG {
+
     static translate({x, y}) {
         return "translate(" + x + "," + y + ")"
     }

@@ -24,11 +24,9 @@ export class GLTR_API {
         }
     }
 
-
     public all_projects(): Promise<{ [key: string]: string }> {
         return d3.json(this.baseURL + '/api/all_projects')
     }
-
 
     public analyze(project: string, text: string, bitmask: number[] = null): Promise<AnalyzeResponse> {
         const payload = {
@@ -45,9 +43,6 @@ export class GLTR_API {
                 "Content-type": "application/json; charset=UTF-8"
             }
         });
-
     }
-
-
 }
 

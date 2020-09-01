@@ -4,7 +4,6 @@ import { SimpleEventHandler } from "../etc/SimpleEventHandler";
 import { tickStep } from "d3";
 import * as d3 from "d3";
 
-
 export type BarChartData = {
     values: number[],
     label?: string[],
@@ -49,8 +48,7 @@ export class BarChart extends VComponent<BarChartData>{
     protected _render(rd: BarChartData): void {
         const op = this.options;
 
-        const xScale = d3.scaleLinear().domain([0, rd.values.length])
-            .range([5, op.width - 35]);
+        const xScale = d3.scaleLinear().domain([0, rd.values.length]).range([5, op.width - 35]);
 
         const extent = rd.extent || [0, d3.max(rd.values)]
         const yScale = d3.scaleLinear().domain(extent)
@@ -60,7 +58,6 @@ export class BarChart extends VComponent<BarChartData>{
         const width = adjustWidth(xScale(1) - xScale(0))
 
         const colorValue = (index: number) => rd.colors ? (rd.colors[index % rd.colors.length]) : null;
-
 
         const allData = rd.values.map((v, i) => ({ v, c: colorValue(i) }))
 
@@ -83,13 +80,8 @@ export class BarChart extends VComponent<BarChartData>{
                     .attr('transform', `translate(${x},${y})`)
                     .style('visibility', null)
                     .text(() => d.v);
-            })
-            .on('mouseleave', () => this.highlightLabel.style('visibility', 'hidden'))
+            }).on('mouseleave', () => this.highlightLabel.style('visibility', 'hidden'))
 
         this.layers.bg.select('.y-axis').call(d3.axisRight(yScale).tickFormat(op.numberFormat));
-
-
     }
-
-
 }

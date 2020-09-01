@@ -31,18 +31,16 @@ export default class URLHandler {
             } else if (isFloat(val)) {
                 return Number.parseFloat(val);
             }
-            // else:
             return val;
         }
-
 
         vars.forEach(v => {
             if (v.length > 0) {
                 const splits = v.split('=');
                 const key = decodeURIComponent(splits[0]);
                 let raw_value = decodeURIComponent(splits[1]);
-
                 const isArray = raw_value.startsWith('..');
+
                 if (isArray) {
                     raw_value = raw_value.slice(2);
                 }
@@ -59,9 +57,7 @@ export default class URLHandler {
         });
 
         return urlParameters;
-
     }
-
 
     /**
      * Generates an URL string from a map of url parameters
@@ -69,6 +65,7 @@ export default class URLHandler {
      * @returns {string} - an URI string
      */
     static urlString(urlParameters: object) {
+
         const attr = [];
         Object.keys(urlParameters).forEach(k => {
             const v = urlParameters[k];
@@ -78,7 +75,6 @@ export default class URLHandler {
                 attr.push(encodeURI(k + '=' + value))
             }
         });
-
 
         const url = window.location.pathname;
         let res = url.substring(url.lastIndexOf('/') + 1);
@@ -95,17 +91,6 @@ export default class URLHandler {
         URLHandler.updateUrl(currentParams, addToBrowserHistory);
     }
 
-    // /**
-    //  * Generates a key-value map of all URL params and replaces replaceKeys
-    //  * @param updateKeys
-    //  */
-    // static updateURLParams(updateKeys) {
-    //     const currentParams = URLHandler.parameters;
-    //     Object.keys(updateKeys).forEach((k) => currentParams[k] = updateKeys[k])
-    //     return currentParams;
-    // }
-
-
     static updateUrl(urlParameters: object, addToBrowserHistory = true) {
         if (addToBrowserHistory) {
             window.history.pushState(urlParameters, '',
@@ -115,5 +100,4 @@ export default class URLHandler {
                 URLHandler.urlString(urlParameters))
         }
     }
-
 }
